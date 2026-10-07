@@ -20,36 +20,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 0.5643,
-  "peak_memory_mb": 2822.41,
+  "elapsed_seconds": 0.5862,
+  "peak_memory_mb": 2823.82,
   "result_rows": 1000,
-  "checksum": 557738125000.0
+  "checksum": 557738125000.0007
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 6.51
-	System time (seconds): 1.66
-	Percent of CPU this job got: 1057%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.77
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2890144
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 719265
-	Voluntary context switches: 4343
-	Involuntary context switches: 684
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 1 / PIPELINE / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -68,38 +45,15 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 0.38,
-  "peak_memory_mb": 543.05,
+  "elapsed_seconds": 0.4232,
+  "peak_memory_mb": 580.62,
   "result_rows": 1000,
-  "checksum": 557738124999.9989
+  "checksum": 557738125000.0007
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 5.49
-	System time (seconds): 0.36
-	Percent of CPU this job got: 1138%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.51
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 557264
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 126819
-	Voluntary context switches: 3888
-	Involuntary context switches: 2194
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 1 / PIPELINE / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -118,36 +72,13 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.0374,
-  "peak_memory_mb": 4577.88,
+  "elapsed_seconds": 1.1968,
+  "peak_memory_mb": 4558.3,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine in-memory"
-	User time (seconds): 10.86
-	System time (seconds): 2.31
-	Percent of CPU this job got: 1025%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.28
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4687752
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1166917
-	Voluntary context switches: 6406
-	Involuntary context switches: 1073
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 192
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 1 / JOIN / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -168,37 +99,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 2.0024,
-  "peak_memory_mb": 4747.89,
+  "elapsed_seconds": 2.2365,
+  "peak_memory_mb": 4758.75,
   "result_rows": 100,
-  "checksum": 4686875000.000006
+  "checksum": 4686875000.000005
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.68
-	System time (seconds): 2.36
-	Percent of CPU this job got: 1116%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.24
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4861836
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 1
-	Minor (reclaiming a frame) page faults: 1327754
-	Voluntary context switches: 3036
-	Involuntary context switches: 2598
-	Swaps: 0
-	File system inputs: 8
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 1 / JOIN / POLARS 2.0 AUTO =====
-<sys>:0: UserWarning: POLARS_MAX_BLOCKING_THREAD_COUNT reached (512), this may indicate a deadlock
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -215,38 +122,15 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 1.4823,
-  "peak_memory_mb": 830.28,
+  "elapsed_seconds": 1.3269,
+  "peak_memory_mb": 697.12,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.63
-	System time (seconds): 0.48
-	Percent of CPU this job got: 1428%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.61
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 850204
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 229664
-	Voluntary context switches: 5636
-	Involuntary context switches: 3297
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 1 / JOIN / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -263,36 +147,13 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.9062,
-  "peak_memory_mb": 4795.17,
+  "elapsed_seconds": 1.7982,
+  "peak_memory_mb": 4772.99,
   "result_rows": 100,
-  "checksum": 4686875000.000006
+  "checksum": 4686875000.000005
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine in-memory"
-	User time (seconds): 21.15
-	System time (seconds): 2.55
-	Percent of CPU this job got: 1098%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.15
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4910252
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1339848
-	Voluntary context switches: 5877
-	Involuntary context switches: 1537
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / PIPELINE / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -315,36 +176,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.0284,
-  "peak_memory_mb": 4539.52,
+  "elapsed_seconds": 1.132,
+  "peak_memory_mb": 4536.73,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 11.11
-	System time (seconds): 2.33
-	Percent of CPU this job got: 1059%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.26
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4648468
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1163397
-	Voluntary context switches: 4761
-	Involuntary context switches: 628
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / PIPELINE / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -363,38 +201,15 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 0.3964,
-  "peak_memory_mb": 568.25,
+  "elapsed_seconds": 0.4183,
+  "peak_memory_mb": 577.64,
   "result_rows": 1000,
-  "checksum": 557738125000.0037
+  "checksum": 557738124999.9998
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 5.58
-	System time (seconds): 0.39
-	Percent of CPU this job got: 1122%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.53
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 583028
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 134176
-	Voluntary context switches: 4113
-	Involuntary context switches: 2607
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / PIPELINE / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -413,36 +228,13 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.0244,
-  "peak_memory_mb": 4565.27,
+  "elapsed_seconds": 1.0895,
+  "peak_memory_mb": 4557.68,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine in-memory"
-	User time (seconds): 10.68
-	System time (seconds): 2.30
-	Percent of CPU this job got: 1023%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.26
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4674836
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1165354
-	Voluntary context switches: 7022
-	Involuntary context switches: 1079
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / JOIN / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -463,36 +255,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.9432,
-  "peak_memory_mb": 4682.72,
+  "elapsed_seconds": 2.201,
+  "peak_memory_mb": 4728.66,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.01
-	System time (seconds): 2.45
-	Percent of CPU this job got: 1122%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.18
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4795104
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1323400
-	Voluntary context switches: 3135
-	Involuntary context switches: 2048
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / JOIN / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -509,38 +278,15 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 1.5018,
-  "peak_memory_mb": 828.99,
+  "elapsed_seconds": 1.2726,
+  "peak_memory_mb": 691.54,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.63
-	System time (seconds): 0.51
-	Percent of CPU this job got: 1412%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.63
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 848884
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 229382
-	Voluntary context switches: 5396
-	Involuntary context switches: 2857
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 2 / JOIN / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -557,36 +303,13 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.9012,
-  "peak_memory_mb": 4769.23,
+  "elapsed_seconds": 1.7535,
+  "peak_memory_mb": 4826.61,
   "result_rows": 100,
-  "checksum": 4686875000.000004
+  "checksum": 4686874999.999984
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine in-memory"
-	User time (seconds): 20.66
-	System time (seconds): 2.41
-	Percent of CPU this job got: 1073%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.15
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4883692
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1340722
-	Voluntary context switches: 6296
-	Involuntary context switches: 2983
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / PIPELINE / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -609,36 +332,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.0258,
-  "peak_memory_mb": 4539.6,
+  "elapsed_seconds": 1.084,
+  "peak_memory_mb": 4540.1,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 10.91
-	System time (seconds): 2.37
-	Percent of CPU this job got: 1043%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.27
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4648552
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1163534
-	Voluntary context switches: 4653
-	Involuntary context switches: 1307
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / PIPELINE / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -657,86 +357,40 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 0.3812,
-  "peak_memory_mb": 557.51,
+  "elapsed_seconds": 0.4017,
+  "peak_memory_mb": 562.41,
   "result_rows": 1000,
-  "checksum": 557738125000.0006
+  "checksum": 557738124999.9999
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 5.53
-	System time (seconds): 0.36
-	Percent of CPU this job got: 1139%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.51
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 572076
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 131416
-	Voluntary context switches: 3925
-	Involuntary context switches: 2426
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / PIPELINE / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 Dataset: data/events.parquet
 File size: 116.4 MB
 shape: (5, 4)
-┌───────┬───────┬────────────┬──────────────┐
-│ group ┆ rows  ┆ gross_sum  ┆ mean_squared │
-│ ---   ┆ ---   ┆ ---        ┆ ---          │
-│ i64   ┆ u32   ┆ f64        ┆ f64          │
-╞═══════╪═══════╪════════════╪══════════════╡
-│ 0     ┆ 70000 ┆ 4.998e8    ┆ 4e7          │
-│ 1     ┆ 70000 ┆ 4.9988e8   ┆ 4.0012001e7  │
-│ 2     ┆ 70000 ┆ 4.999666e8 ┆ 4.0024004e7  │
-│ 3     ┆ 70000 ┆ 5.000499e8 ┆ 4.0036009e7  │
-│ 4     ┆ 70000 ┆ 5.001332e8 ┆ 4.0048016e7  │
-└───────┴───────┴────────────┴──────────────┘
+┌───────┬───────┬───────────┬──────────────┐
+│ group ┆ rows  ┆ gross_sum ┆ mean_squared │
+│ ---   ┆ ---   ┆ ---       ┆ ---          │
+│ i64   ┆ u32   ┆ f64       ┆ f64          │
+╞═══════╪═══════╪═══════════╪══════════════╡
+│ 0     ┆ 70000 ┆ 4.998e8   ┆ 4e7          │
+│ 1     ┆ 70000 ┆ 4.9988e8  ┆ 4.0012001e7  │
+│ 2     ┆ 70000 ┆ 4.9997e8  ┆ 4.0024004e7  │
+│ 3     ┆ 70000 ┆ 5.0005e8  ┆ 4.0036009e7  │
+│ 4     ┆ 70000 ┆ 5.0013e8  ┆ 4.0048016e7  │
+└───────┴───────┴───────────┴──────────────┘
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.0236,
-  "peak_memory_mb": 4575.96,
+  "elapsed_seconds": 0.5974,
+  "peak_memory_mb": 2849.26,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine in-memory"
-	User time (seconds): 10.83
-	System time (seconds): 2.33
-	Percent of CPU this job got: 1036%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.27
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4685784
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1165649
-	Voluntary context switches: 7020
-	Involuntary context switches: 1568
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / JOIN / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -757,36 +411,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.9221,
-  "peak_memory_mb": 4733.64,
+  "elapsed_seconds": 2.0833,
+  "peak_memory_mb": 4661.21,
   "result_rows": 100,
-  "checksum": 4686875000.000006
+  "checksum": 4686875000.000007
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 21.70
-	System time (seconds): 2.52
-	Percent of CPU this job got: 1115%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.17
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4847244
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1324123
-	Voluntary context switches: 3379
-	Involuntary context switches: 2261
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / JOIN / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -803,38 +434,15 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 1.4916,
-  "peak_memory_mb": 838.16,
+  "elapsed_seconds": 1.2978,
+  "peak_memory_mb": 696.5,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.78
-	System time (seconds): 0.51
-	Percent of CPU this job got: 1430%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.62
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 858280
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 224038
-	Voluntary context switches: 5130
-	Involuntary context switches: 2417
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 3 / JOIN / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -851,36 +459,13 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.9192,
-  "peak_memory_mb": 4718.45,
+  "elapsed_seconds": 1.9032,
+  "peak_memory_mb": 4822.75,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine in-memory"
-	User time (seconds): 20.83
-	System time (seconds): 2.50
-	Percent of CPU this job got: 1076%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.16
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4831688
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1343015
-	Voluntary context switches: 6880
-	Involuntary context switches: 2982
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / PIPELINE / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -903,36 +488,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.0449,
-  "peak_memory_mb": 4539.34,
+  "elapsed_seconds": 1.07,
+  "peak_memory_mb": 4540.25,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 11.06
-	System time (seconds): 2.27
-	Percent of CPU this job got: 1032%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.29
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4648280
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1163585
-	Voluntary context switches: 4806
-	Involuntary context switches: 739
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / PIPELINE / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -951,38 +513,15 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 0.3778,
-  "peak_memory_mb": 537.26,
+  "elapsed_seconds": 0.4072,
+  "peak_memory_mb": 555.05,
   "result_rows": 1000,
-  "checksum": 557738125000.0005
+  "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 5.51
-	System time (seconds): 0.37
-	Percent of CPU this job got: 1146%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.51
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 550516
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 127246
-	Voluntary context switches: 3964
-	Involuntary context switches: 2065
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / PIPELINE / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -1001,36 +540,13 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.0329,
-  "peak_memory_mb": 4581.99,
+  "elapsed_seconds": 1.0767,
+  "peak_memory_mb": 4563.56,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine in-memory"
-	User time (seconds): 10.68
-	System time (seconds): 2.40
-	Percent of CPU this job got: 1017%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.28
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4691960
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1167546
-	Voluntary context switches: 7091
-	Involuntary context switches: 1458
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / JOIN / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -1051,36 +567,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 2.0125,
-  "peak_memory_mb": 4667.8,
+  "elapsed_seconds": 2.0965,
+  "peak_memory_mb": 4732.25,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.86
-	System time (seconds): 2.48
-	Percent of CPU this job got: 1125%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.25
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4779824
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1324249
-	Voluntary context switches: 3471
-	Involuntary context switches: 2403
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / JOIN / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -1097,38 +590,15 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 1.4908,
-  "peak_memory_mb": 819.69,
+  "elapsed_seconds": 1.3204,
+  "peak_memory_mb": 693.94,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.63
-	System time (seconds): 0.57
-	Percent of CPU this job got: 1426%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.62
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 839364
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 228122
-	Voluntary context switches: 5436
-	Involuntary context switches: 2604
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 4 / JOIN / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -1145,36 +615,13 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.9724,
-  "peak_memory_mb": 4707.65,
+  "elapsed_seconds": 1.7859,
+  "peak_memory_mb": 4783.93,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine in-memory"
-	User time (seconds): 21.46
-	System time (seconds): 2.39
-	Percent of CPU this job got: 1073%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.22
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4820636
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1339586
-	Voluntary context switches: 6483
-	Involuntary context switches: 2123
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / PIPELINE / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -1197,36 +644,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 0.56,
-  "peak_memory_mb": 2823.42,
+  "elapsed_seconds": 0.5809,
+  "peak_memory_mb": 2824.69,
   "result_rows": 1000,
-  "checksum": 557738125000.0
+  "checksum": 557738124999.9995
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 6.73
-	System time (seconds): 1.73
-	Percent of CPU this job got: 1090%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.77
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2891180
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 719312
-	Voluntary context switches: 4286
-	Involuntary context switches: 607
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / PIPELINE / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -1245,38 +669,15 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 0.3877,
-  "peak_memory_mb": 562.27,
+  "elapsed_seconds": 0.4201,
+  "peak_memory_mb": 582.8,
   "result_rows": 1000,
-  "checksum": 557738125000.0001
+  "checksum": 557738125000.0002
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine auto"
-	User time (seconds): 5.45
-	System time (seconds): 0.37
-	Percent of CPU this job got: 1110%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.52
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 575764
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 132521
-	Voluntary context switches: 4004
-	Involuntary context switches: 2782
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / PIPELINE / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 Dataset: data/events.parquet
 File size: 116.4 MB
@@ -1295,36 +696,13 @@ shape: (5, 4)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.0288,
-  "peak_memory_mb": 4578.95,
+  "elapsed_seconds": 1.0701,
+  "peak_memory_mb": 4564.02,
   "result_rows": 1000,
   "checksum": 557738125000.0
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/01_streaming_memory.py --engine in-memory"
-	User time (seconds): 10.96
-	System time (seconds): 2.30
-	Percent of CPU this job got: 1041%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.27
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4688848
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1167099
-	Voluntary context switches: 6689
-	Involuntary context switches: 1115
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / JOIN / POLARS 1.44 AUTO =====
 Polars: 1.44.2
 Engine: auto
@@ -1345,36 +723,13 @@ RESULT
 {
   "polars": "1.44.2",
   "engine": "auto",
-  "elapsed_seconds": 1.9934,
-  "peak_memory_mb": 4658.12,
+  "elapsed_seconds": 2.0397,
+  "peak_memory_mb": 4684.55,
   "result_rows": 100,
-  "checksum": 4686875000.000006
+  "checksum": 4686875000.000005
 }
-	Command being timed: "uv run --with polars==1.44.2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.79
-	System time (seconds): 2.45
-	Percent of CPU this job got: 1130%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.23
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4769912
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1324582
-	Voluntary context switches: 3029
-	Involuntary context switches: 1517
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 184
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / JOIN / POLARS 2.0 AUTO =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: auto
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -1391,38 +746,15 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "auto",
-  "elapsed_seconds": 1.4959,
-  "peak_memory_mb": 829.02,
+  "elapsed_seconds": 1.3031,
+  "peak_memory_mb": 690.49,
   "result_rows": 100,
   "checksum": 4686875000.000006
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine auto"
-	User time (seconds): 22.62
-	System time (seconds): 0.49
-	Percent of CPU this job got: 1414%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.63
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 848920
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 228902
-	Voluntary context switches: 6088
-	Involuntary context switches: 2695
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 ===== RUN 5 / JOIN / POLARS 2.0 IN-MEMORY =====
-Polars: 2.0.0-rc.2
+Polars: 2.0.0
 Engine: in-memory
 shape: (5, 5)
 ┌─────────┬─────────┬──────────────┬──────────┬─────────────────┐
@@ -1439,33 +771,10 @@ shape: (5, 5)
 
 RESULT
 {
-  "polars": "2.0.0-rc.2",
+  "polars": "2.0.0",
   "engine": "in-memory",
-  "elapsed_seconds": 1.8898,
-  "peak_memory_mb": 4692.62,
+  "elapsed_seconds": 1.7603,
+  "peak_memory_mb": 4777.66,
   "result_rows": 100,
-  "checksum": 4686875000.000007
+  "checksum": 4686875000.000005
 }
-	Command being timed: "uv run --with polars==2.0.0rc2 benchmarks/02_join.py --engine in-memory"
-	User time (seconds): 20.96
-	System time (seconds): 2.44
-	Percent of CPU this job got: 1095%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.13
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 4805240
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1340491
-	Voluntary context switches: 6372
-	Involuntary context switches: 3483
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 176
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0

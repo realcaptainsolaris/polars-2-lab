@@ -8,11 +8,11 @@ for i in {1..5}; do
     benchmarks/01_streaming_memory.py --engine auto
 
   echo "===== RUN $i / PIPELINE / POLARS 2.0 AUTO ====="
-  /usr/bin/time -v uv run --with polars==2.0.0rc2 \
+  /usr/bin/time -v uv run --with polars==2.0.0 \
     benchmarks/01_streaming_memory.py --engine auto
 
   echo "===== RUN $i / PIPELINE / POLARS 2.0 IN-MEMORY ====="
-  /usr/bin/time -v uv run --with polars==2.0.0rc2 \
+  /usr/bin/time -v uv run --with polars==2.0.0 \
     benchmarks/01_streaming_memory.py --engine in-memory
 
   echo "===== RUN $i / JOIN / POLARS 1.44 AUTO ====="
@@ -20,10 +20,10 @@ for i in {1..5}; do
     benchmarks/02_join.py --engine auto
 
   echo "===== RUN $i / JOIN / POLARS 2.0 AUTO ====="
-  /usr/bin/time -v uv run --with polars==2.0.0rc2 \
+  /usr/bin/time -v uv run --with polars==2.0.0 \
     benchmarks/02_join.py --engine auto
 
   echo "===== RUN $i / JOIN / POLARS 2.0 IN-MEMORY ====="
-  /usr/bin/time -v uv run --with polars==2.0.0rc2 \
+  /usr/bin/time -v uv run --with polars==2.0.0 \
     benchmarks/02_join.py --engine in-memory
 done
