@@ -1,0 +1,7 @@
+[project]
+name = "polars-2-lab"
+version = "0.1.0"
+description = "Reproducible migration and performance experiments for Polars 2.0"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
