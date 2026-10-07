@@ -1,30 +1,46 @@
 # Polars 2.0 Benchmark Lab
 
-A small, reproducible benchmark lab for exploring the upcoming **Polars 2.0** release.
+Reproducible benchmarks and migration experiments for **Polars 2.0.0**.
 
-The repository accompanies my Polars 2.0 experiments and benchmarks. It focuses primarily on the changes around the execution engine and compares:
+The main benchmark processes **100 million rows** and compares the default `auto` execution engine with the `in-memory` engine.
 
-- Polars 1.44
-- Polars 2.0
-- the default `auto` engine
-- the `in-memory` engine
+The result on my test machine:
 
-The main benchmark uses up to **100 million rows** and measures both execution time and peak memory usage.
+| Benchmark | Engine | Median Runtime | Median Peak RAM |
+|---|---|---:|---:|
+| 100M pipeline | Polars 2.0 `auto` | **0.414 s** | **592 MB** |
+| 100M pipeline | Polars 2.0 `in-memory` | 1.061 s | 4.56 GB |
+| 100M join | Polars 2.0 `auto` | **1.297 s** | **691 MB** |
+| 100M join | Polars 2.0 `in-memory` | 1.729 s | 4.76 GB |
 
-> **Important:** The current results were produced with a Polars 2.0 release candidate. They are an early look at Polars 2.0, not final-release benchmarks. The benchmarks will be rerun once Polars 2.0 is officially released.
+For the main pipeline, `auto` used roughly **87% less peak memory** while running about **2.6× faster**.
+
+The repository contains everything needed to reproduce the tests locally.
+
+## Why This Repository Exists
+
+Polars 2.0 changes the default execution behavior of lazy queries.
+
+With Polars 2.0, `engine="auto"` can use the streaming engine instead of the traditional in-memory execution path.
+
+For large datasets, that can dramatically change memory consumption.
+
+This repository provides reproducible experiments for investigating that behavior instead of relying on small synthetic timing snippets.
+
+It also contains migration experiments for selected Polars 2.0 API and behavioral changes.
 
 ## Requirements
 
+The benchmarks are designed primarily for Linux.
+
 You need:
 
-- Linux
 - Git
 - Python
 - [uv](https://docs.astral.sh/uv/)
+- `/usr/bin/time`
 
-The benchmark scripts use `/usr/bin/time -v` for independent peak-memory measurements, so Linux is currently the recommended environment.
-
-You do **not** need to install Polars manually. `uv` creates the required environments and installs the appropriate Polars versions.
+The benchmark scripts use `/usr/bin/time -v` to independently measure maximum resident set size.
 
 ## Clone the Repository
 
@@ -42,158 +58,246 @@ git clone https://github.com/realcaptainsolaris/polars-2-lab.git
 cd polars-2-lab
 ```
 
-## Install uv
+## Install the Environment
 
-If `uv` is not installed yet, follow the official installation instructions:
-
-https://docs.astral.sh/uv/getting-started/installation/
-
-Verify the installation:
-
-```bash
-uv --version
-```
-
-## Install the Project
-
-From the repository directory:
+Dependencies are managed with `uv`.
 
 ```bash
 uv sync
 ```
 
-This creates the local virtual environment and installs the project dependencies defined in `pyproject.toml`.
+No benchmark datasets are stored in Git.
 
-## Benchmark Data
-
-The generated benchmark datasets are intentionally **not stored in Git**.
-
-The full benchmark creates large local Parquet files, including datasets containing up to 100 million rows.
-
-They are excluded through `.gitignore`:
-
-```text
-data/*.parquet
-```
-
-This keeps the repository small and makes the experiment reproducible: every user generates the same synthetic benchmark data locally.
+They are generated locally when needed.
 
 ## Run the Benchmarks
 
-The complete benchmark suite can be started with:
+Run the complete benchmark suite with:
 
 ```bash
 bash run_benchmarks.sh
 ```
 
-The script creates the required benchmark data and runs the different Polars configurations.
+The script runs the benchmark configurations repeatedly so that results can be compared using medians instead of relying on a single execution.
 
-Depending on the machine, the full benchmark may take some time and requires several gigabytes of available RAM.
+The suite compares:
 
-For the 100-million-row tests, make sure your system has sufficient free memory before starting the benchmark.
+- Polars 1.44.2 with `engine="auto"`
+- Polars 2.0.0 with `engine="auto"`
+- Polars 2.0.0 with `engine="in-memory"`
 
-## What Is Being Compared?
+It runs both the main aggregation pipeline and the join workload.
 
-The benchmark focuses on two workloads.
+## Benchmark 1: 100 Million Row Pipeline
 
-### Lazy Pipeline
+The first benchmark creates a synthetic Parquet dataset containing **100 million rows**.
 
-A synthetic dataset containing up to 100 million rows is processed using a lazy Polars query containing operations such as:
+The lazy query performs:
 
 ```text
 scan_parquet
-→ filter
-→ expressions
-→ group_by
-→ aggregations
-→ sort
+    ↓
+filter
+    ↓
+expressions
+    ↓
+group_by
+    ↓
+aggregations
+    ↓
+sort
 ```
 
-The benchmark compares execution time and peak memory consumption across Polars versions and execution engines.
+The same query is executed using different Polars versions and execution engines.
 
-### Join Pipeline
+The important Polars 2.0 comparison is:
 
-A second workload joins a large transaction dataset with customer data before filtering and aggregating the result:
+```python
+result = query.collect(engine="auto")
+```
+
+versus:
+
+```python
+result = query.collect(engine="in-memory")
+```
+
+No query logic changes between those runs.
+
+### Results
+
+Median of five runs:
+
+| Engine | Runtime | Peak RAM |
+|---|---:|---:|
+| Polars 2.0 `auto` | **0.414 s** | **592 MB** |
+| Polars 2.0 `in-memory` | 1.061 s | 4.56 GB |
+
+In this workload, automatic execution required approximately **87% less peak memory**.
+
+It was also approximately **2.6× faster**.
+
+## Benchmark 2: 100 Million Row Join
+
+The second workload uses:
+
+- 100 million transactions
+- 1 million customers
+- an inner join
+- filtering
+- grouping
+- multiple aggregations
+- sorting
+
+Again, the query itself remains unchanged between execution engines.
+
+### Results
+
+Median of five runs:
+
+| Engine | Runtime | Peak RAM |
+|---|---:|---:|
+| Polars 2.0 `auto` | **1.297 s** | **691 MB** |
+| Polars 2.0 `in-memory` | 1.729 s | 4.76 GB |
+
+Here, `auto` reduced peak memory by roughly **85%** while also reducing runtime by approximately **25%**.
+
+## Comparing Polars 1.44 and 2.0
+
+The suite also runs Polars 1.44.2.
+
+This is useful because `engine="auto"` does not imply identical execution behavior across the two major versions.
+
+For example, the join benchmark produced a median runtime of roughly:
 
 ```text
-transactions
-→ join customers
-→ filter
-→ group_by
-→ aggregations
-→ sort
+Polars 1.44.2 auto
+~1.99 s
+~4.71 GB peak RAM
 ```
 
-This provides a more demanding test of the Polars execution engine.
+compared with:
 
-## Memory Measurement
+```text
+Polars 2.0.0 auto
+~1.30 s
+~691 MB peak RAM
+```
 
-The Python benchmark scripts report their own runtime and peak RSS.
+The goal is not to claim that every Polars workload will see improvements of this magnitude.
 
-The benchmark runner additionally uses:
+The benchmark demonstrates how significantly the execution behavior can change for workloads that benefit from streaming.
+
+## Dataset Generation
+
+The datasets are intentionally **not committed to Git**.
+
+They are generated locally.
+
+This keeps the repository small and makes the experiment reproducible without distributing hundreds of megabytes of generated benchmark data.
+
+The main 100-million-row Parquet file is highly compressible because the synthetic values repeat frequently.
+
+As a result, the file is only approximately:
+
+```text
+116 MB
+```
+
+on disk.
+
+This is important when interpreting the results.
+
+The benchmark is not intended to demonstrate Parquet compression or raw disk throughput.
+
+## Benchmark Methodology
+
+Each important configuration is executed **five times**.
+
+The reported numbers use the median.
+
+Runtime is measured around query execution.
+
+Peak process memory is additionally measured using:
 
 ```bash
 /usr/bin/time -v
 ```
 
-The important external measurement is:
+and its:
 
 ```text
 Maximum resident set size
 ```
 
-This gives us an independent measurement of the maximum physical memory used by the process.
+measurement.
 
-The benchmarks are repeated several times so that individual runs do not determine the final result.
+The benchmark is deliberately focused on:
 
-For comparisons, the **median runtime and median peak RSS** should be used.
+- query execution
+- execution-engine behavior
+- peak memory consumption
 
-## Reproducing the Experiment
+It is **not a cold disk-I/O benchmark**.
 
-For the most comparable results:
+Repeated runs benefit from the operating system filesystem cache.
 
-1. Close memory-intensive applications.
-2. Generate the benchmark datasets locally.
-3. Run the complete benchmark suite.
-4. Let every configuration run all repetitions.
-5. Compare medians rather than individual runs.
+That is intentional for this experiment.
 
-The benchmark is primarily designed to compare **execution-engine behavior**, not storage or disk performance.
+## Important Caveats
 
-Because the same Parquet files are read repeatedly, operating-system filesystem caching can affect I/O. This is intentional: the experiment focuses on query execution and memory behavior rather than cold-disk throughput.
+These are synthetic benchmarks.
 
-## Synthetic Data
+Real-world performance depends on factors including:
 
-The benchmark data is synthetic and deliberately simple.
+- data distribution
+- column types
+- query structure
+- join cardinality
+- available memory
+- CPU
+- storage
+- operating system
+- Polars query optimization
 
-Because many values repeat, Parquet can compress the datasets extremely well. A file containing 100 million rows can therefore be much smaller on disk than its row count might suggest.
+Do not interpret the numbers in this repository as universal Polars performance numbers.
 
-The benchmark should consequently **not** be interpreted as a comparison of Parquet compression ratios or disk I/O performance.
-
-Its purpose is to compare how the different Polars execution strategies process the same workload.
+The useful comparison is the behavior of different execution strategies under the **same workload on the same machine**.
 
 ## Migration Experiments
 
-The repository also contains smaller experiments for investigating behavioral and API changes in Polars 2.0.
+The repository also contains small experiments related to Polars 2.0 migration behavior.
 
-These include areas such as:
+```text
+migration/
+├── 01_engine_default.py
+├── 02_sql_literals.py
+├── 03_parquet_enum.py
+├── 04_cut_qcut.py
+└── 05_migration_gotchas.py
+```
 
-- execution-engine behavior
-- join row ordering
+These experiments investigate areas such as:
+
+- execution-engine changes
 - SQL behavior
-- deprecated and removed APIs
-- `cut` / `qcut` changes
-- Parquet behavior
+- Parquet type handling
+- deprecated APIs
+- removed APIs
+- ordering behavior
 
-Some of these experiments currently target the Polars 2.0 release candidate and will be rerun against the final release.
+One particularly important migration detail is that streaming execution can produce different row ordering for operations such as joins.
+
+If downstream code depends on row order, make that requirement explicit rather than relying on incidental execution order.
 
 ## Repository Structure
 
 ```text
 polars-2-lab/
-├── benchmark.sh
+├── run_benchmarks.sh
 ├── main.py
 ├── pyproject.toml
+├── README.md
 ├── migration/
 │   ├── 01_engine_default.py
 │   ├── 02_sql_literals.py
@@ -204,27 +308,30 @@ polars-2-lab/
 │   ├── 01_streaming_memory.py
 │   └── 02_join.py
 ├── data/
-│   └── generated locally
 └── results/
-    └── benchmark results
 ```
 
-## A Note About Polars 2.0
+## Official Polars 2.0 Resources
 
-This repository currently tracks the **Polars 2.0 release candidate**.
+- [Polars 2.0 — Official Release Announcement](https://pola.rs/posts/release-polars-2/)
+- [Polars 2.0 — Official Upgrade Guide](https://docs.pola.rs/releases/upgrade/2/)
+- [Polars 2.0.0 on PyPI](https://pypi.org/project/polars/2.0.0/)
 
-That distinction matters.
+## Reproduce the Results
 
-Release-candidate behavior, performance, warnings, and APIs may still change before the final release. Results in this repository should therefore be treated as reproducible observations of the tested RC rather than definitive Polars 2.0 performance claims.
+The shortest path from clone to benchmark is:
 
-Once the stable Polars 2.0 release is available, the benchmark suite will be rerun without changing the workloads.
+```bash
+git clone git@github.com:realcaptainsolaris/polars-2-lab.git
+cd polars-2-lab
+uv sync
+bash run_benchmarks.sh
+```
 
-That will allow a direct comparison between the release candidate and the final release.
+Then compare your results with the numbers above.
 
-## Related Article
+Different hardware will produce different runtimes.
 
-This repository contains the complete experiments behind my upcoming Polars 2.0 articles on Medium.
+The interesting question is whether you see the same dramatic difference in **peak memory consumption** between the execution engines.
 
-The first article takes an early look at the surprisingly large memory difference observed with the new execution behavior.
-
-The full Polars 2.0 review will follow after the final release, including updated benchmarks and the migration changes that matter in practice.
+If you do, I'd be interested to hear what numbers you get.
